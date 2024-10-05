@@ -1,47 +1,74 @@
 "use client";
 
+import { cn } from "@/utils/cn";
 import {
   Description,
   Dialog,
+  DialogBackdrop,
   DialogPanel,
   DialogTitle,
 } from "@headlessui/react";
-import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useCallback } from "react";
 
-const LearnMoreFormDialog: React.FC = () => {
-  const searchParam = useSearchParams();
-  const isOpen = useMemo(() => {
-    return searchParam.get("form") === "learn-more";
-  }, [searchParam]);
+const LearnMoreFormDialog: React.FC<{
+  toogleLink: string;
+  isOpen: boolean;
+}> = ({ toogleLink, isOpen }) => {
+  const router = useRouter();
+
+  const handleClose = useCallback(() => {
+    router.replace(toogleLink);
+  }, [router, toogleLink]);
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>Open dialog</button>
       <Dialog
         open={isOpen}
-        onClose={() => setIsOpen(false)}
-        className="relative z-50"
+        as="div"
+        transition
+        className={cn(
+          "pointer-events-none fixed inset-0 z-10 flex items-center justify-center transition duration-300 ease-out data-[closed]:opacity-0",
+        )}
+        onClose={handleClose}
       >
-        <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-          <DialogPanel className="max-w-lg space-y-4 border bg-white p-12">
-            <DialogTitle className="font-bold">Deactivate account</DialogTitle>
-            <Description>
-              This will permanently deactivate your account
-            </Description>
-            <p>
-              Are you sure you want to deactivate your account? All of your data
-              will be permanently removed.
-            </p>
-            <div className="flex gap-4">
-              <button onClick={() => setIsOpen(false)}>Cancel</button>
-              <button onClick={() => setIsOpen(false)}>Deactivate</button>
-            </div>
-          </DialogPanel>
-        </div>
+        <DialogBackdrop
+          className={cn(
+            "fixed inset-0 z-20 backdrop-blur-sm",
+            "bg-neutral-950/30",
+            "dark:bg-neutral-50/30",
+          )}
+        />
+
+        {/* Full-screen container to center the panel */}
+
+        {/* The actual dialog panel  */}
+        <DialogPanel
+          className={cn(
+            "z-50 max-w-lg rounded-3xl p-8 shadow-xl",
+            "bg-neutral-50 text-neutral-950",
+            "dark:bg-neutral-950 dark:text-neutral-50",
+          )}
+        >
+          <DialogTitle className="font-bold">Step 1</DialogTitle>
+          <Description>
+            This will permanently deactivate your account
+          </Description>
+          <p>
+            Are you sure you want to deactivate your account? All of your data
+            will be permanently removed.
+          </p>
+          <div className="flex gap-4">
+            <Link href={toogleLink} className="btn btn-amber h-20 w-full">
+              Cancel
+            </Link>
+          </div>
+        </DialogPanel>
       </Dialog>
     </>
   );
 };
 
+export default LearnMoreFormDialog;
 export { LearnMoreFormDialog };
