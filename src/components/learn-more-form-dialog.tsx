@@ -9,14 +9,38 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 
-const LearnMoreFormDialog: React.FC<{
-  toogleLink: string;
-  isOpen: boolean;
-}> = ({ toogleLink, isOpen }) => {
+const LearnMoreFormDialog = () => {
   const router = useRouter();
+
+  const searchParam = useSearchParams();
+
+  // type searchParamsType = string[][] | Record<string, string> | string | URLSearchParams;
+  console.log("searchParam", searchParam);
+
+  const getToogleLink = () => {
+    const params = new URLSearchParams(
+      Object.entries(searchParam).map(([key, value]) => [
+        key,
+        Array.isArray(value) ? value.join(",") : value || "",
+      ]),
+    );
+
+    if (!searchParam.get("form")) {
+      params.append("form", "learn-more");
+      return `?${params.toString()}`;
+    }
+
+    params.delete("form");
+    params.delete("step");
+    return `?${params.toString()}`;
+  };
+
+  const isOpen = searchParam.get("form") === "learn-more";
+
+  const toogleLink = getToogleLink();
 
   const handleClose = useCallback(() => {
     router.replace(toogleLink);
@@ -24,6 +48,17 @@ const LearnMoreFormDialog: React.FC<{
 
   return (
     <>
+      <Link
+        href={toogleLink}
+        className={cn(
+          "mt-8 flex h-20 w-full items-center justify-center rounded-full text-lg font-bold",
+          "bg-neutral-950 text-neutral-50",
+          "dark:bg-neutral-50 dark:text-neutral-950",
+          "shadow-lg transition-transform duration-300 ease-out hover:scale-[1.02] hover:shadow-2xl",
+        )}
+      >
+        Learn More
+      </Link>
       <Dialog
         open={isOpen}
         as="div"
