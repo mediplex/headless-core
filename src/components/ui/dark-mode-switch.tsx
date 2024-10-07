@@ -1,10 +1,9 @@
 "use client";
 
 import dynamic from "next/dynamic";
-// import { Switch } from "@headlessui/react";
+import { cn } from "@/utils/cn";
 import { useTheme } from "next-themes";
 import { LoaderCircle, Moon, Sun } from "lucide-react";
-import { cn } from "@/utils/cn";
 
 const Switch = dynamic(
   () => import("@headlessui/react").then((mod) => mod.Switch),

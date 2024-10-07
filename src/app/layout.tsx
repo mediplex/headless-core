@@ -24,23 +24,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body
+        className={cn(
+          inter.className,
+          "bg-neutral-50 text-neutral-950",
+          "dark:bg-neutral-950 dark:text-neutral-50",
+        )}
+      >
         <ThemeProvider
           attribute="class"
           // defaultTheme="system"
           storageKey="theme"
           enableSystem={true}
           enableColorScheme={true}
-          disableTransitionOnChange = {false}
+          disableTransitionOnChange={false}
         >
-          <main
-            className={cn(
-              "flex flex-col items-center",
-              "bg-neutral-50 text-neutral-950",
-              "dark:bg-neutral-950 dark:text-neutral-50",
-            )}
-          >
-            <nav className="flex h-14 w-full items-center justify-between px-4">
+          <main className={cn("flex flex-col items-center", "w-screen")}>
+            <nav
+              className={cn(
+                "flex flex-row-reverse h-14 w-full items-center justify-between px-4 shadow",
+                "bg-neutral-50 text-neutral-950 shadow-neutral-950/10",
+                "dark:bg-neutral-950 dark:text-neutral-50 dark:shadow-neutral-50/10",
+              )}
+            >
               <DarkModeSwitch />
             </nav>
             {children}
