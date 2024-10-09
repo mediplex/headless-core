@@ -38,8 +38,7 @@ const LearnMore = () => {
           className={cn(
             "flex items-center",
             "text-medium font-medium uppercase -tracking-tighter",
-            "text-neutral-950",
-            "dark:text-neutral-50",
+            "text-primary-950",
             "transition-all duration-300 ease-out hover:underline",
           )}
         >
@@ -51,7 +50,6 @@ const LearnMore = () => {
         className={cn(
           "mx-4 rounded-3xl px-8 py-10 shadow",
           "bg-white",
-          "dark:bg-neutral-900",
         )}
       >
         <h1 className={cn("mb-8 text-center text-3xl font-semibold")}>
@@ -66,7 +64,7 @@ const LearnMore = () => {
           <Fieldset className={cn("flex flex-col gap-4")}>
             <Legend
               className={cn(
-                "mb-2 border-b border-neutral-500 text-lg font-medium",
+                "mb-2 border-b border-primary-500 text-lg font-medium",
               )}
             >
               Step 1
@@ -88,14 +86,14 @@ const LearnMore = () => {
                   "col-start-1 col-end-2 row-start-2 row-end-3 h-10 rounded-lg shadow",
                   "grid",
                   "pl-10",
-                  "bg-neutral-100",
+                  "bg-primary-100",
                 )}
                 name="name"
               />
               <User
                 className={cn(
                   "col-start-1 col-end-2 row-start-2 row-end-3 place-self-center justify-self-start",
-                  "size-6 text-neutral-500",
+                  "size-6 text-primary-500",
                   "ml-2",
                 )}
               />
@@ -119,13 +117,13 @@ const LearnMore = () => {
                   "col-start-1 col-end-2 row-start-2 row-end-3 h-12 rounded-lg shadow",
                   "grid",
                   "pl-10",
-                  "bg-neutral-100",
+                  "bg-primary-100",
                 )}
               />
               <Mail
                 className={cn(
                   "col-start-1 col-end-2 row-start-2 row-end-3 place-self-center justify-self-start",
-                  "size-6 text-neutral-500",
+                  "size-6 text-primary-500",
                   "ml-2",
                 )}
               />
@@ -135,7 +133,7 @@ const LearnMore = () => {
           <Fieldset className={cn("flex flex-col gap-4")}>
             <Legend
               className={cn(
-                "mb-2 border-b border-neutral-500 text-lg font-medium",
+                "mb-2 border-b border-primary-500 text-lg font-medium",
               )}
             >
               Step 2
@@ -154,7 +152,7 @@ const LearnMore = () => {
                 className={cn(
                   "group h-16 w-full rounded-lg px-2 shadow data-[checked]:ring-1",
                   "flex items-center gap-2",
-                  "text-neutral-950 dark:text-neutral-50",
+                  "text-primary-950",
                 )}
               >
                 <Stethoscope className={cn("size-6")} />
@@ -171,7 +169,7 @@ const LearnMore = () => {
                 className={cn(
                   "group h-16 w-full rounded-lg px-2 shadow data-[checked]:ring-1",
                   "flex items-center gap-2",
-                  "text-neutral-950 dark:text-neutral-50",
+                  "text-primary-950",
                 )}
               >
                 <Stethoscope className={cn("size-6")} />
@@ -188,7 +186,7 @@ const LearnMore = () => {
                 className={cn(
                   "group h-16 w-full rounded-lg px-2 shadow data-[checked]:ring-1",
                   "flex items-center gap-2",
-                  "text-neutral-950 dark:text-neutral-50",
+                  "text-primary-950",
                 )}
               >
                 <Stethoscope className={cn("size-6")} />
@@ -205,7 +203,7 @@ const LearnMore = () => {
                 className={cn(
                   "group h-16 w-full rounded-lg px-2 shadow data-[checked]:ring-1",
                   "flex items-center gap-2",
-                  "text-neutral-950 dark:text-neutral-50",
+                  "text-primary-950",
                 )}
               >
                 <Stethoscope className={cn("size-6")} />
@@ -224,8 +222,7 @@ const LearnMore = () => {
           form={formId}
           className={cn(
             "mt-8 flex h-20 w-full items-center justify-center rounded-full text-lg font-bold",
-            "bg-neutral-950 text-neutral-50",
-            "dark:bg-neutral-50 dark:text-neutral-950",
+            "bg-primary-950 text-primary-50",
             "shadow-lg transition-transform duration-300 ease-out hover:scale-[1.02] hover:shadow-2xl",
           )}
         >

@@ -2,7 +2,6 @@
   "recommendations": [
     "usernamehw.errorlens",
     "codeium.codeium",
-    "aaron-bond.better-comments",
     "dbaeumer.vscode-eslint",
     "wix.vscode-import-cost",
     "pkief.material-icon-theme",

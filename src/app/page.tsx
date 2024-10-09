@@ -28,8 +28,7 @@ const Home = () => {
           prefetch={true}
           className={cn(
             "mt-8 flex h-20 w-full items-center justify-center rounded-full text-lg font-bold",
-            "bg-neutral-950 text-neutral-50",
-            "dark:bg-neutral-50 dark:text-neutral-950",
+            "bg-primary-950 text-primary-50",
             "transition-transform duration-300 ease-out hover:scale-[1.02] hover:drop-shadow-md",
           )}
         >

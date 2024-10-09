@@ -10,15 +10,16 @@ const Switch = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="inline-flex h-6 w-11 items-center justify-center rounded-full bg-neutral-500">
-        <LoaderCircle className="size-4 animate-spin rounded-full text-neutral-200" />
+      <div className="bg-primary-500 inline-flex h-6 w-11 items-center justify-center rounded-full">
+        <LoaderCircle className="text-primary-200 size-4 animate-spin rounded-full" />
       </div>
     ),
   },
 );
 
 const DarkModeSwitch = () => {
-  const { setTheme, theme, resolvedTheme } = useTheme();
+  const { setTheme, theme, resolvedTheme, themes } = useTheme();
+  console.log("themes", themes);
 
   const handleChange = (isChecked: boolean) => {
     console.log("hadleChane: isChecked", isChecked);
@@ -36,23 +37,23 @@ const DarkModeSwitch = () => {
       onChange={handleChange}
       className={cn(
         "group inline-flex h-6 w-11 items-center rounded-full border transition",
-        "border-neutral-600 bg-neutral-200 text-neutral-300",
-        "dark:border-neutral-300 dark:bg-neutral-600 dark:text-neutral-600",
+        "border-primary-600 bg-primary-200 text-primary-300",
+        "data-[checked]:border-primary-300 data-[checked]:bg-primary-600 data-[checked]:text-primary-600",
       )}
     >
       <div
         className={cn(
-          "relative size-4 translate-x-1 rounded-full shadow-lg transition duration-500 ease-out dark:translate-x-6",
-          "bg-neutral-600",
-          "dark:bg-neutral-300",
+          "relative size-4 translate-x-1 rounded-full shadow-lg transition duration-500 ease-out group-data-[checked]:translate-x-6",
+          "bg-primary-600",
+          "group-data-[checked]:bg-primary-300",
         )}
       >
         <Sun
-          className="absolute left-1/2 top-1/2 z-10 size-3 -translate-x-1/2 -translate-y-1/2 opacity-100 dark:opacity-0"
+          className="absolute left-1/2 top-1/2 z-10 size-3 -translate-x-1/2 -translate-y-1/2 opacity-100 group-data-[checked]:opacity-0"
           fill="currentColor"
         />
         <Moon
-          className="absolute left-1/2 top-1/2 z-10 size-3 -translate-x-1/2 -translate-y-1/2 opacity-0 dark:opacity-100"
+          className="absolute left-1/2 top-1/2 z-10 size-3 -translate-x-1/2 -translate-y-1/2 opacity-0 group-data-[checked]:opacity-100"
           fill="currentColor"
         />
       </div>

@@ -27,12 +27,12 @@ export default function RootLayout({
       <body
         className={cn(
           inter.className,
-          "bg-neutral-200 text-neutral-950",
-          "dark:bg-neutral-950 dark:text-neutral-50",
+          "bg-primary-200 text-primary-950",
+          "data-[theme=dark]:bg-primary-950 data-[theme=dark]:text-primary-50",
         )}
       >
         <ThemeProvider
-          attribute="class"
+          attribute="data-theme"
           // defaultTheme="system"
           storageKey="theme"
           enableSystem={true}
@@ -42,9 +42,9 @@ export default function RootLayout({
           <main className={cn("flex flex-col items-center", "w-screen")}>
             <nav
               className={cn(
-                "flex flex-row-reverse h-14 w-full items-center justify-between px-4 shadow",
-                "bg-neutral-50 text-neutral-950 shadow-neutral-950/10",
-                "dark:bg-neutral-950 dark:text-neutral-50 dark:shadow-neutral-50/10",
+                "flex h-14 w-full flex-row-reverse items-center justify-between px-4 shadow",
+                "bg-primary-50 text-primary-950 shadow-primary-950/10",
+                "data-[theme=dark]:bg-primary-950 data-[theme=dark]:text-primary-50 data-[theme=dark]:shadow-primary-50/10",
               )}
             >
               <DarkModeSwitch />
