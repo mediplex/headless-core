@@ -5,6 +5,8 @@ import { useActionState, useId } from "react";
 import learnMoreFormAction from "@/actions/learn-more-form-action";
 import {
   Button,
+  Checkbox,
+  Description,
   Field,
   Fieldset,
   Input,
@@ -12,7 +14,7 @@ import {
   Legend,
 } from "@headlessui/react";
 import Link from "next/link";
-import { ChevronLeft, Mail, User } from "lucide-react";
+import { Check, ChevronLeft, Mail, Stethoscope, User } from "lucide-react";
 
 const LearnMore = () => {
   const [, submitAction, isPending] = useActionState(
@@ -22,20 +24,26 @@ const LearnMore = () => {
   const formId = useId();
   const nameId = useId();
   const emailId = useId();
+  const qualificationId = useId();
   return (
     <div className={cn("mt-14 w-full md:max-w-lg")}>
-      <nav className={cn("flex h-14 w-full items-center justify-between")}>
+      <nav
+        className={cn(
+          "flex items-center justify-between",
+          "mx-4 h-14 w-full px-4",
+        )}
+      >
         <Link
           href="/"
           className={cn(
-            "flex h-10 items-center px-2 py-2",
+            "flex items-center",
             "text-medium font-medium uppercase -tracking-tighter",
             "text-neutral-950",
             "dark:text-neutral-50",
-            "transition-transform duration-300 ease-out hover:scale-[1.02] hover:shadow-2xl",
+            "transition-all duration-300 ease-out hover:underline",
           )}
         >
-          <ChevronLeft />
+          <ChevronLeft className={cn("size-6")} />
           <span className="">Back</span>
         </Link>
       </nav>
@@ -43,7 +51,7 @@ const LearnMore = () => {
         className={cn(
           "mx-4 rounded-3xl px-8 py-10 shadow",
           "bg-white",
-          "dark:bg-neutral-800",
+          "dark:bg-neutral-900",
         )}
       >
         <h1 className={cn("mb-8 text-center text-3xl font-semibold")}>
@@ -121,6 +129,91 @@ const LearnMore = () => {
                   "ml-2",
                 )}
               />
+            </Field>
+          </Fieldset>
+
+          <Fieldset className={cn("flex flex-col gap-4")}>
+            <Legend
+              className={cn(
+                "mb-2 border-b border-neutral-500 text-lg font-medium",
+              )}
+            >
+              Step 2
+            </Legend>
+
+            <Field className={cn("grid grid-cols-2 gap-1")}>
+              <Description className={cn("col-span-2")}>
+                Tell us about yourself to personalize the infomation we send to
+                you
+              </Description>
+              <Checkbox
+                // checked={enabled}
+                // onChange={setEnabled}
+                name="qualification"
+                id={qualificationId}
+                className={cn(
+                  "group h-16 w-full rounded-lg px-2 shadow data-[checked]:ring-1",
+                  "flex items-center gap-2",
+                  "text-neutral-950 dark:text-neutral-50",
+                )}
+              >
+                <Stethoscope className={cn("size-6")} />
+                <Label htmlFor={qualificationId} className={cn("flex-1")}>
+                  Doctor
+                </Label>
+                <Check className="opacity-0 group-data-[checked]:opacity-100" />
+              </Checkbox>
+              <Checkbox
+                // checked={enabled}
+                // onChange={setEnabled}
+                name="qualification"
+                id={qualificationId}
+                className={cn(
+                  "group h-16 w-full rounded-lg px-2 shadow data-[checked]:ring-1",
+                  "flex items-center gap-2",
+                  "text-neutral-950 dark:text-neutral-50",
+                )}
+              >
+                <Stethoscope className={cn("size-6")} />
+                <Label htmlFor={qualificationId} className={cn("flex-1")}>
+                  Doctor
+                </Label>
+                <Check className="opacity-0 group-data-[checked]:opacity-100" />
+              </Checkbox>
+              <Checkbox
+                // checked={enabled}
+                // onChange={setEnabled}
+                name="qualification"
+                id={qualificationId}
+                className={cn(
+                  "group h-16 w-full rounded-lg px-2 shadow data-[checked]:ring-1",
+                  "flex items-center gap-2",
+                  "text-neutral-950 dark:text-neutral-50",
+                )}
+              >
+                <Stethoscope className={cn("size-6")} />
+                <Label htmlFor={qualificationId} className={cn("flex-1")}>
+                  Doctor
+                </Label>
+                <Check className="opacity-0 group-data-[checked]:opacity-100" />
+              </Checkbox>{" "}
+              <Checkbox
+                // checked={enabled}
+                // onChange={setEnabled}
+                name="qualification"
+                id={qualificationId}
+                className={cn(
+                  "group h-16 w-full rounded-lg px-2 shadow data-[checked]:ring-1",
+                  "flex items-center gap-2",
+                  "text-neutral-950 dark:text-neutral-50",
+                )}
+              >
+                <Stethoscope className={cn("size-6")} />
+                <Label htmlFor={qualificationId} className={cn("flex-1")}>
+                  Doctor
+                </Label>
+                <Check className="opacity-0 group-data-[checked]:opacity-100" />
+              </Checkbox>
             </Field>
           </Fieldset>
         </Form>
