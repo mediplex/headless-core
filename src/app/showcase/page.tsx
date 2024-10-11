@@ -1,8 +1,12 @@
+// Font Size provider +/-
+import { Content } from "@/components";
 import {
   Headline,
   SubHeadline,
   HeadlineGroup,
   Paragraph,
+  SectionHeadline,
+  SectionSubHeadline,
 } from "@/components/ui/typography";
 import { cn } from "@/utils/cn";
 import React from "react";
@@ -11,25 +15,48 @@ const data = {
   headline: "Here’s Your Attention Getting Headline",
   subHeadline: "This is your sub-headline to increase credibility or curiosity",
   paragraph:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "Here is your paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  sectionHeadline: "Section Headline: Lorem Ipsum",
+  sectionSubHeadline: "Section Sub-Headline: Lorem Ipsum",
 };
 
 const Showcase = () => {
   return (
     <div
       className={cn(
-        "flex h-screen w-full max-w-6xl flex-col justify-center gap-20 px-4",
+        "flex w-full max-w-6xl flex-col justify-center gap-20 px-4 pt-20",
         "bg-primary-95 text-primary-5",
       )}
     >
-      <HeadlineGroup className="">
+      <HeadlineGroup>
         <Headline>{data.headline}</Headline>
         <SubHeadline>{data.subHeadline}</SubHeadline>
       </HeadlineGroup>
 
-      <Paragraph className="bg-emerald-500 first-letter:float-left first-letter:mr-3 first-letter:text-7xl first-letter:font-bold first-letter:text-white first-line:uppercase first-line:tracking-widest">
-        {data.paragraph}
-      </Paragraph>
+      <div className="flex flex-col gap-2">
+        <HeadlineGroup className="mb-4 gap-1">
+          <SectionHeadline>{data.sectionHeadline}</SectionHeadline>
+          <SectionSubHeadline>{data.sectionSubHeadline}</SectionSubHeadline>
+        </HeadlineGroup>
+        <Content>
+          <h1>{"H1: This is your headline"}</h1>
+          <h2>{"H2: This is your headline"}</h2>
+          <h3>{"H3: This is your headline"}</h3>
+          <h4>{"H4: This is your headline"}</h4>
+          <h5>{"H5: This is your headline"}</h5>
+          <h6>{"H6: This is your headline"}</h6>
+
+          <p className="first-letter:float-left first-letter:mr-2 first-letter:text-7xl first-letter:font-bold first-letter:text-primary-20">
+            {data.paragraph}
+          </p>
+
+          <p>{data.paragraph}</p>
+        </Content>
+        {/* <Paragraph className="first-letter:float-left first-letter:mr-2 first-letter:text-7xl first-letter:font-bold first-letter:text-primary-20">
+          {data.paragraph}
+        </Paragraph>
+        <Paragraph className="">{data.paragraph}</Paragraph> */}
+      </div>
 
       <div className="flex flex-col gap-2 border border-dashed border-primary-5 p-8">
         <div className="flex gap-2">
@@ -227,10 +254,17 @@ const Depth: React.FC<{ className?: string; children?: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <div className={cn("flex items-center justify-center p-2", className)}>
+    <div
+      className={cn(
+        "flex items-center justify-center rounded-full p-1.5",
+        className,
+      )}
+    >
       {children}
     </div>
   );
 };
 
 export default Showcase;
+
+// [ ] https://www.youtube.com/watch?v=eXRlVpw1SIQ&list=TLPQMDkxMDIwMjRQ7XHPrBqyGg&index=4

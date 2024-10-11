@@ -13,13 +13,14 @@
     "@headlessui/react": "^2.1.8",
     "clsx": "^2.1.1",
     "lucide-react": "^0.447.0",
-    "next": "15.0.0-canary.179",
+    "next": "15.0.0-canary.183",
     "next-themes": "^0.3.0",
     "react": "19.0.0-rc-2d16326d-20240930",
     "react-dom": "19.0.0-rc-2d16326d-20240930",
     "tailwind-merge": "^2.5.3"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

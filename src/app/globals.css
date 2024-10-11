@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --primary-hue: 200;
+  --primary-hue: 30;
   --accent-hue: calc(180 + var(--primary-hue));
-  --colorful: 95;
+  --colorful: 85;
   --muted: 5;
 
   --luminosity-0: 0;
