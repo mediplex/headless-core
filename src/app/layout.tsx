@@ -4,7 +4,7 @@ import { DarkModeSwitch } from "@/components";
 
 import { Inter } from "next/font/google";
 import { cn } from "@/utils/cn";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "@/providers";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
@@ -32,12 +32,6 @@ export default function RootLayout({
         )}
       >
         <ThemeProvider
-          attribute="data-theme"
-          // defaultTheme="system"
-          storageKey="theme"
-          enableSystem={true}
-          enableColorScheme={true}
-          disableTransitionOnChange={false}
         >
           <main className={cn("flex flex-col items-center", "w-screen")}>
             <nav
